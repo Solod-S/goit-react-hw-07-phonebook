@@ -1,20 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import { rootReduser } from './rootReducer';
+import { rootReduser } from './rootReducer';
 import { myContactSlice } from './contactSlice';
-import { myFilterSlice } from './filterSlice';
-import { myModalSlice } from './modalSlice';
 
 export const store = configureStore({
-  reducer: {
-    [myContactSlice.reducerPath]: myContactSlice.reducer,
-    filter: myFilterSlice.reducer,
-    modal: myModalSlice.reducer,
-  },
+  reducer: rootReduser,
 
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(myContactSlice.middleware),
-  // middleware: getDefaultMiddleware => [
-  //   ...getDefaultMiddleware(),
-  //   rootReduser.middleware,
-  // ],
+  middleware: getDefaultMiddleware => [
+    ...getDefaultMiddleware(),
+    myContactSlice.middleware,
+  ],
 });
