@@ -8,11 +8,10 @@ import {
   LabelForContactsForm,
   ButtonForContactsForm,
 } from './ContactEditorForm.styled';
-
+import PropTypes from 'prop-types';
 export const ContactEditorForm = ({
   initialValues = { name: '', number: '' },
   onSubmit,
-  btnText,
 }) => {
   const handleSubmit = async (values, actions) => {
     await onSubmit(values);
@@ -35,11 +34,18 @@ export const ContactEditorForm = ({
               </ItemsForContactsForm>
             </ListForContactsForm>
             <ButtonForContactsForm type="submit" disabled={isSubmitting}>
-              {btnText}
+              Saving
             </ButtonForContactsForm>
           </ContactsForm>
         )}
       </Formik>
     </>
   );
+};
+ContactEditorForm.propTypes = {
+  initialValues: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };

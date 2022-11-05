@@ -37,7 +37,7 @@ export const notify = toShown => {
   }
   if (toShown === 'editContact') {
     return toast.success(
-      ' You have edit the contact!',
+      'Your contact has been edited!',
       notifictationOptions.success
     );
   }

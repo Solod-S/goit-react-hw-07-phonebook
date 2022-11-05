@@ -12,13 +12,9 @@ export const AppBar = () => {
           <StyledLink end="true" to="/">
             Home
           </StyledLink>
-          {/* <StyledLink to="/favorite">Favorite</StyledLink> */}
         </StyledNav>
       </StyledHeader>
       <Outlet />
-      {/* <Suspense fallback={<div>Loading page...</div>}>
-        <Outlet />
-      </Suspense> */}
     </Box>
   );
 };
